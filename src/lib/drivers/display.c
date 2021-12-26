@@ -1,6 +1,6 @@
 #include "display.h"
 #include "ports.h"
-#include "../utils.h"
+#include "../std/mem.h"
 
 void set_cursor(int offset)
 {

@@ -2,7 +2,7 @@
 #include "idt.h"
 #include "../drivers/display.h"
 #include "../drivers/ports.h"
-#include "../utils.h"
+#include "../std/string.h"
 
 isr_t interrupt_handlers[256];
 
@@ -116,7 +116,7 @@ void isr_handler(registers_t *r)
 {
   print("Received interrupt: ");
   char s[3];
-  its(r->int_no, s);
+  its(s, r->int_no);
   print(s);
   print_nl();
   print(exception_messages[r->int_no]);

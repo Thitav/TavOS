@@ -1,7 +1,7 @@
 #ifndef IDT_H
 #define IDT_H
 
-#include "../utils.h"
+#include "../std/int.h"
 
 /* Segment selectors */
 #define KERNEL_CS 0x08
@@ -14,16 +14,16 @@ typedef struct
   uint16_t sel;        /* Kernel segment selector */
   uint8_t always0;
   /* First byte
-     * Bit 7: "Interrupt is present"
-     * Bits 6-5: Privilege level of caller (0=kernel..3=user)
-     * Bit 4: Set to 0 for interrupt gates
-     * Bits 3-0: bits 1110 = decimal 14 = "32 bit interrupt gate" */
+   * Bit 7: "Interrupt is present"
+   * Bits 6-5: Privilege level of caller (0=kernel..3=user)
+   * Bit 4: Set to 0 for interrupt gates
+   * Bits 3-0: bits 1110 = decimal 14 = "32 bit interrupt gate" */
   uint8_t flags;
   uint16_t high_offset; /* Higher 16 bits of handler function address */
 } __attribute__((packed)) idt_gate_t;
 
 /* A pointer to the array of interrupt handlers.
-     * Assembly instruction 'lidt' will read it */
+ * Assembly instruction 'lidt' will read it */
 typedef struct
 {
   uint16_t limit;

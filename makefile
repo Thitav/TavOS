@@ -1,5 +1,5 @@
-CC = /usr/local/i386elfgcc/bin/i386-elf-gcc
-LD = /usr/local/i386elfgcc/bin/i386-elf-ld
+CC = /usr/local/bin/i386elfgcc/bin/i386-elf-gcc
+LD = /usr/local/bin/i386elfgcc/bin/i386-elf-ld
 ASMC = nasm
 
 CFLAGS = -ffreestanding -m32 -g -c
@@ -17,12 +17,11 @@ dirs:
 	mkdir -p ./bin
 
 kernel: $(OBJS)
-	$(ASMC) src/zeroes.asm -o bin/zeroes.bin -f bin
 	$(ASMC) src/boot.asm -o bin/boot.bin -f bin
 	$(ASMC) src/kernel_entry.asm -o bin/kernel_entry.o $(ASMFLAGS)
 	$(CC) src/kernel.c -o bin/kernel.o $(CFLAGS)
 	$(LD) bin/kernel_entry.o bin/kernel.o $^ -o bin/full_kernel.bin $(LDFLAGS)
-	cat bin/boot.bin bin/full_kernel.bin bin/zeroes.bin > bin/os.bin
+	cat bin/boot.bin bin/full_kernel.bin > bin/os.bin
 
 %.o: %.c
 	$(CC) $< -o $@ $(CFLAGS)

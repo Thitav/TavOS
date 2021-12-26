@@ -1,11 +1,7 @@
 #include "lib/drivers/display.h"
 #include "lib/cpu/isr.h"
 #include "lib/drivers/keyboard.h"
-
-void test_handler()
-{
-  print("handler\n");
-}
+#include "lib/std/string.h"
 
 extern void main()
 {
@@ -17,8 +13,21 @@ extern void main()
 
   print("Initialization sequence completed\n");
   print_nl();
-  print("Tchorbi OS v0.0.1\n");
+  print("TavOS v0.0.1\n");
   print_nl();
 
-  register_keyboard_event(21, &test_handler);
+  while (1)
+  {
+    char cmd[256];
+    input("> ", cmd);
+
+    if (strcmp(cmd, "clear"))
+    {
+      clear_screen();
+    }
+    else
+    {
+      print("Unknown command\n");
+    }
+  }
 }

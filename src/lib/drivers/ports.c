@@ -1,9 +1,8 @@
 #include "ports.h"
-#include "../utils.h"
 
 uint8_t byte_in(uint16_t port)
 {
-  unsigned char result;
+  uint8_t result;
   asm("in %%dx, %%al"
       : "=a"(result)
       : "d"(port));
