@@ -1,0 +1,6 @@
+{
+  "name": "gcc-cross-compiler",
+  "build": {
+    "dockerfile": "Dockerfile"
+  }
+}

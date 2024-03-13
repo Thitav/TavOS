@@ -1,5 +1,5 @@
-CC = /usr/local/bin/i386elfgcc/bin/i386-elf-gcc
-LD = /usr/local/bin/i386elfgcc/bin/i386-elf-ld
+CC = i386-elf-gcc
+LD = i386-elf-ld
 ASMC = nasm
 
 CFLAGS = -ffreestanding -m32 -g -c
