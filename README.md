@@ -25,6 +25,7 @@ Install [QEMU](https://www.qemu.org/) for emulating the OS (other emulators can 
 ```bash
 qemu-system-i386 -fda ./bin/os.bin
 ```
+
 ## References
 
 [OSDev Wiki](https://wiki.osdev.org/)
