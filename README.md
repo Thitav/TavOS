@@ -1,6 +1,6 @@
 # TavOS
 
-TavOS is a minimal 32bit toy OS made completely for fun and learning purposes.
+Minimal 32bit toy OS made completely for fun and learning purposes.
 
 ## Building
 
@@ -25,6 +25,9 @@ Install [QEMU](https://www.qemu.org/) for emulating the OS (other emulators can 
 ```bash
 qemu-system-i386 -fda ./bin/os.bin
 ```
+## References
+
+[OSDev Wiki](https://wiki.osdev.org/)
 
 ## License
 
